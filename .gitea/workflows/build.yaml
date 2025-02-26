@@ -25,8 +25,7 @@ jobs:
         run: pnpm build
       - name: 复制到目标目录
         env: 
-          DATABASE_URL: ${{ vars.DATABASE_URL }}
-          NUXT_GITHUB_CLIENT_SECRET: ${{ vars.NUXT_GITHUB_CLIENT_SECRET }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           rm -rf /root/server/zzclub-base-server/*
           mkdir -p /root/server/zzclub-base-server/prisma
