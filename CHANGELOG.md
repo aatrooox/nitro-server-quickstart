@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://43.156.136.151/zzaoclub/base-server/compare/v0.1.1...v0.1.2)
+
+### 🩹 Fixes
+
+- 生产环境mysql配置 (d67e509)
+
+### ❤️ Contributors
+
+- Gnak <gnakzz@qq.com>
+
 ## v0.1.1
 
 
