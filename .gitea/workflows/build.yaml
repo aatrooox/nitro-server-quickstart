@@ -34,7 +34,7 @@ jobs:
           cp -R ecosystem.config.cjs /root/server/zzclub-base-server/ecosystem.config.cjs
           cd /root/server/zzclub-base-server
           prisma migrate deploy
-          pm2 start ecosystem.config.cjs
+          pm2 restart ecosystem.config.cjs
       - run: echo "  The ${{ gitea.repository }} repository has been cloned to the runner."
       - run: echo " ️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
