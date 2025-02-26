@@ -1,10 +1,24 @@
 {
+  "name": "zzclub-base-server",
+  "description": "zzclub base server",
   "private": true,
+  "version": "0.1.0",
+  "author": {
+    "name": "aatrooox",
+    "email": "gnakzz@qq.com",
+    "url": "https://zzao.club"
+  },
+  "type": "module",
   "scripts": {
     "build": "nitro build",
-    "dev": "nitro dev --port 5775",
+    "dev": "nitro dev --port 5770",
     "prepare": "nitro prepare",
-    "preview": "node .output/server/index.mjs"
+    "preview": "node .output/server/index.mjs",
+    "release": "pnpm release:patch",
+    "release:patch": "npx changelogen@latest --patch --release --push",
+    "release:minor": "npx changelogen@latest --minor --release --push",
+    "release:major": "npx changelogen@latest --major --release --push",
+    "release:main": "npx changelogen@latest -r v1.0.0 --release --push"
   },
   "devDependencies": {
     "nitropack": "latest"
