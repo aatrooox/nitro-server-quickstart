@@ -2,7 +2,7 @@
   "name": "zzclub-base-server",
   "description": "zzclub base server",
   "private": true,
-  "version": "0.1.2",
+  "version": "1.0.0",
   "author": {
     "name": "aatrooox",
     "email": "gnakzz@qq.com",
@@ -17,8 +17,7 @@
     "release": "pnpm release:patch",
     "release:patch": "npx changelogen@latest --patch --release --push",
     "release:minor": "npx changelogen@latest --minor --release --push",
-    "release:major": "npx changelogen@latest --major --release --push",
-    "release:main": "npx changelogen@latest -r v1.0.0 --release --push"
+    "release:major": "npx changelogen@latest --major --release --push"
   },
   "devDependencies": {
     "nitropack": "latest"
@@ -26,6 +25,7 @@
   "dependencies": {
     "@prisma/client": "6.4.1",
     "h3-zod": "^0.5.3",
+    "jose": "^6.0.8",
     "prisma": "6.4.1",
     "zod": "^3.24.2"
   }

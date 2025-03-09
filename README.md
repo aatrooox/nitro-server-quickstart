@@ -1,25 +1,39 @@
-# 基础服务层
+# 服务层
 
-## 职责
+## 功能
 
-### 表结构维护
+- Prisma 
+  - 自带 User/OAuth Model
+- Mysql
+  - 8.0 见 [教程](https://blog.zzao.club/post/nuxt/local-init-mysql-by-docker)
+- Redis
+  - 7.0 见  [教程](https://blog.zzao.club/post/nuxt/local-init-mysql-by-docker)
+- 登录注册
+  - 用户名密码注册
+  - 用户名密码登录
+- 参数校验
+  - 基于 zod, h3-zod
+- 权限校验
+  - middleware/1.auth0.ts
+- Cookie
+  - 见 api/v1/user/login.post.ts
+- Gitea Actions
+- PM2 
 
-所有模块公用一个Mysql服务, 对于基础服务的数据库读写, 需要调用基础的接口
+## 开发环境
 
-和自己模块对应的表, 可以直接从自己服务里调用数据库服务, 调用时会走中间件, 调用checkToken, 判断有无权限
+1. 配置 mysql 链接
+2. redis 默认链接 localhost:6379, 不需要配置
+3. 根据根目录下的 docker.compose.example.yml, [本地启动 Mysql 和 Redis 服务](https://blog.zzao.club/post/nuxt/local-init-mysql-by-docker)
 
-1. 创建和修改表结构
-   
-  
+```
+copy -p ./.env.example ./.env
+```
 
-### 用户/权限相关接口
+## 生成环境（gitea）
 
-其他服务登录 -> 调用基础服务/api/user/login -> 生成token -> 返回token
+1. gitea 开启 actions
+2. 配置 action 下的密钥（SECRETS）
+- DATABASE_URL
+- FEISHU_WEBHOOK
 
-处理自身逻辑时, 在中间件调用基础服务的checkToken, 校验通过时放行, 失败时返回错误信息
-
-1. 用户名密码登录
-2. 第三方登录后, 关联第三方信息
-3. 获取用户信息
-  
-### 

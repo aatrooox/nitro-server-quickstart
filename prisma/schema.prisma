@@ -8,31 +8,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// 用户表(用于使用用户名密码注册的用户)
+// 用户表
 model User {
-  id           Int               @id @default(autoincrement())
-  uid          String            @unique
+  id           String           @id @default(uuid(7))
   email        String?
   phone        String?
-  username     String            @unique
-  nickname     String?           @unique
+  username     String           @unique
+  nickname     String?          @unique
   password     String
   avatar_url   String?
-  role         String            @default("user")
-  comments     BlogComments[]
-  sub_comments BlogSubComments[]
-  likes        BlogLikes[]
+  role         String           @default("user")
   oauth        OAuth[]
 
-  @@map("zzclub_user")
+  @@map("base_user")
 }
 
 // 第三方登录
 model OAuth {
-  id                   Int      @id @default(autoincrement())
-  userId               Int // 关联到主用户表
+  id                   String   @id @default(uuid(7))
+  userId               String // 关联到主用户表
   provider             String // 'github', 'google', 'wechat' 等
   providerId           String // 第三方平台的用户ID
+  providerUnionId      String // 第三方生态中跨应用用户唯一id
   providerToken        String? // 第三方平台的用户token
   providerRefreshToken String? // 第三方平台的用户refresh token
   createdAt            DateTime @default(now())
@@ -41,68 +38,5 @@ model OAuth {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerId])
-  @@map("zzclub_oauth")
-}
-
-// 博客 一级评论表: 针对文章和动态的第一级评论
-model BlogComments {
-  id           Int               @id @default(autoincrement())
-  uid          String            @unique
-  content      String
-  create_ts    DateTime          @default(now())
-  updated_ts   DateTime          @updatedAt
-  type         String            @default("article") // article / memo / blog
-  user_id      Int
-  user_info    User              @relation(fields: [user_id], references: [id], onDelete: NoAction)
-  sub_comments BlogSubComments[] // 一对多的二级评论
-  likes        BlogLikes[]
-
-  @@map("blog_comments")
-}
-
-// 博客 二级评论表
-model BlogSubComments {
-  id                   Int          @id @default(autoincrement())
-  uid                  String       @unique
-  content              String
-  create_ts            DateTime     @default(now())
-  updated_ts           DateTime     @updatedAt
-  comment_id           Int
-  // 如果一级评论删除了，则删除所有二级评论
-  comment_info         BlogComments @relation(fields: [comment_id], references: [id], onDelete: Cascade)
-  reply_sub_comment_id Int?
-  user_id              Int
-  user_info            User         @relation(fields: [user_id], references: [id], onDelete: NoAction)
-  memo_id              Int?
-  likes                BlogLikes[]
-
-  @@map("blog_sub_comments")
-}
-
-// 博客 点赞表
-model BlogLikes {
-  id               Int              @id @default(autoincrement())
-  create_ts        DateTime         @default(now())
-  updated_ts       DateTime         @updatedAt
-  target           String           @default("article") // article / memo / comment / subcomment
-  sub_comment_id   Int?
-  sub_comment_info BlogSubComments? @relation(fields: [sub_comment_id], references: [id])
-  comment_id       Int?
-  comment_info     BlogComments?    @relation(fields: [comment_id], references: [id])
-  user_id          Int
-  user_info        User             @relation(fields: [user_id], references: [id], onDelete: NoAction)
-
-  @@map("blog_likes")
-}
-
-// imgx 预设表
-model ImgxPreset {
-  id         Int      @id @default(autoincrement())
-  uid        String   @unique
-  preset     Json
-  create_ts  DateTime @default(now())
-  updated_ts DateTime @updatedAt
-  user_id    Int
-
-  @@map("imgx_preset")
+  @@map("base_oauth")
 }
