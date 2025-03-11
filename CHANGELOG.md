@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.2
+
+[compare changes](https://github.com/aatrooox/nitro-server-quickstart/compare/v1.0.1...v1.0.2)
+
+### 📖 Documentation
+
+- 更新使用说明 ([1067752](https://github.com/aatrooox/nitro-server-quickstart/commit/1067752))
+
+### ❤️ Contributors
+
+- Aatrox <gnakzz@qq.com>
+
 ## v1.0.1
 
 
