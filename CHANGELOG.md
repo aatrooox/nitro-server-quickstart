@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.3
+
+[compare changes](https://github.com/aatrooox/nitro-server-quickstart/compare/v1.0.2...v1.0.3)
+
+### 🚀 Enhancements
+
+- 修改pm2配置文件为yaml ([8a93c0b](https://github.com/aatrooox/nitro-server-quickstart/commit/8a93c0b))
+
+### ❤️ Contributors
+
+- Aatrox <gnakzz@qq.com>
+
 ## v1.0.2
 
 [compare changes](https://github.com/aatrooox/nitro-server-quickstart/compare/v1.0.1...v1.0.2)
