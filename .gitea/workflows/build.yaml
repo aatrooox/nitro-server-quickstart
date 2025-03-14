@@ -31,15 +31,15 @@ jobs:
           mkdir -p /root/server/zzclub-base-server/prisma
           cp -R .output/* /root/server/zzclub-base-server/
           cp -R prisma/* /root/server/zzclub-base-server/prisma/
-          cp -R ecosystem.config.cjs /root/server/zzclub-base-server/ecosystem.config.cjs
-      # pm2 重启时使用 pm2 restart ecosystem.config.cjs
+          cp -R pm2.config.yml /root/server/zzclub-base-server/pm2.config.yml
+      # pm2 重启时使用 pm2 restart pm2.config.yml
       - name: 启动项目
         env: 
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           cd /root/server/zzclub-base-server
           prisma migrate deploy
-          pm2 start ecosystem.config.cjs
+          pm2 start pm2.config.yml
       - run: echo "  The ${{ gitea.repository }} repository has been cloned to the runner."
       - run: echo " ️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository

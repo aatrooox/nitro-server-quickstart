@@ -21,7 +21,7 @@ export default defineNitroConfig({
     redis: {
       driver: 'redis',
       host: 'localhost',
-      db: 1, // TODO 和其他服务 区分开
+      db: 3, // TODO 和其他服务 区分开
       tls: false,
       port: 6379,
     }

@@ -1,0 +1,7 @@
+# 生产环境配置
+apps:
+  - name: nitro-server
+    script: .output/server/index.mjs # 根据自己实际情况修改
+    exec_mode: fork
+    instances: 1
+    port: 5770
