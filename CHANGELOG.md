@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v2.0.0
+
+[compare changes](https://github.com/aatrooox/nitro-server-quickstart/compare/v1.0.3...v2.0.0)
+
+### 🩹 Fixes
+
+- Pm2 yml config ([bf4ee78](https://github.com/aatrooox/nitro-server-quickstart/commit/bf4ee78))
+
+### ❤️ Contributors
+
+- Aatrox <gnakzz@qq.com>
+
 ## v1.0.3
 
 [compare changes](https://github.com/aatrooox/nitro-server-quickstart/compare/v1.0.2...v1.0.3)
