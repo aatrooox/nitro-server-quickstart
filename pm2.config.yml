@@ -4,4 +4,5 @@ apps:
     script: .output/server/index.mjs # 根据自己实际情况修改
     exec_mode: fork
     instances: 1
-    port: 5770
+    env:
+      PORT: 5770
