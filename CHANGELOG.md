@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v1.0.4
+
+[compare changes](https://github.com/aatrooox/nitro-server-quickstart/compare/v1.0.3...v1.0.4)
+
+### 🩹 Fixes
+
+- Pm2 yml config ([bf4ee78](https://github.com/aatrooox/nitro-server-quickstart/commit/bf4ee78))
+
+### 🏡 Chore
+
+- **release:** V2.0.0 ([c7af09c](https://github.com/aatrooox/nitro-server-quickstart/commit/c7af09c))
+- Rollback ([8415ea0](https://github.com/aatrooox/nitro-server-quickstart/commit/8415ea0))
+
+### ❤️ Contributors
+
+- Aatrox <gnakzz@qq.com>
+
 ## v2.0.0
 
 [compare changes](https://github.com/aatrooox/nitro-server-quickstart/compare/v1.0.3...v2.0.0)
